@@ -1,0 +1,11 @@
+git init = initialize github repository
+
+
+Trying to push something: 
+git add -A
+git commit -m "message about the push in quotes"
+git push origin master
+
+
+Trying to pull something: 
+git pull origin master
