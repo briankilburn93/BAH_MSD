@@ -1,11 +1,32 @@
 package com.bah.msd.mcc.pojos;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="EVENTS")
 public class Event {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(name="TITLE")
 	private String eventTitle;
+	
+	@Column(name="EVENT_CODE")
 	private String eventCode;
+	
+	@Column(name="DESCRIPTION")
 	private String eventDescription;
+	
+	public Event() {
+		
+	}
 	
 	public long getId() {
 		return id;
