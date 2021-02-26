@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,18 +52,20 @@ public class RegistrationAPI {
 			@RequestBody Registration newRegistration,
 			@PathVariable("eventId") long eventId) 
 	{
-		// Workshop: Implementation to update an event. Think about error handling.
-		return null;
+		if(newRegistration.getEventId() != eventId) {
+			return ResponseEntity.badRequest().build();
+		}
+		newRegistration = repo.save(newRegistration);
+		return ResponseEntity.ok().build();
 	}	
 	
 	@DeleteMapping("/{eventId}")
 	public ResponseEntity<?> deleteRegistrationById(@PathVariable("eventId") long id) {
-		//  Workshop:  Implementation to delete an event.  For discussion (do not implement unless
-		//  you are sure you have time):  Are there checks you should make to ensure validity of 
-		//  data across various entities?  Where should these checks be implemented.  Are there
-		//  advantages and disadvantages to separating data into separate independent entities,
-		//  each with it's own "microservice"?
-		return null;
+		if(repo.findById(id) == null) {
+			return ResponseEntity.badRequest().build();
+		}
+		repo.deleteById(id);
+		return ResponseEntity.ok().build();
 	}	
 	
 }
