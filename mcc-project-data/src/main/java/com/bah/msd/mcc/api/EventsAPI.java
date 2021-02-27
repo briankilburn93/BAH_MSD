@@ -27,7 +27,6 @@ public class EventsAPI {
 
 	@GetMapping
 	public Iterable<Event> getAll() {
-		//  Workshop:  Implement a method to retrieve all events
 		return repo.findAll();
 	}
 
@@ -38,7 +37,7 @@ public class EventsAPI {
 	
 	@PostMapping
 	public ResponseEntity<?> addEvent(@RequestBody Event newEvent, UriComponentsBuilder uri) {
-		if(newEvent.getId() != 0 || newEvent.getEventCode() == null || newEvent.getEventDescription() == null || newEvent.getEventTitle() == null) {
+		if(newEvent.getId() != 0 || newEvent.getCode() == null || newEvent.getDescription() == null || newEvent.getTitle() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newEvent = repo.save(newEvent);
@@ -52,7 +51,7 @@ public class EventsAPI {
 			@RequestBody Event newEvent,
 			@PathVariable("eventId") long eventId) 
 	{
-		if(newEvent.getId() != eventId || newEvent.getEventCode() == null || newEvent.getEventDescription() == null || newEvent.getEventTitle() == null) {
+		if(newEvent.getId() != eventId || newEvent.getCode() == null || newEvent.getDescription() == null || newEvent.getTitle() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newEvent = repo.save(newEvent);

@@ -16,40 +16,56 @@ public class Event {
 	private long id;
 	
 	@Column(name="TITLE")
-	private String eventTitle;
+	private String title;
 	
 	@Column(name="EVENT_CODE")
-	private String eventCode;
+	private String code;
 	
 	@Column(name="DESCRIPTION")
-	private String eventDescription;
+	private String description;
 	
 	public Event() {
 		
 	}
 	
+	public Event(long id, String title, String code, String description) {
+		this.id = id;
+		this.title = title;
+		this.code = code;
+		this.description = description;
+	}
+
 	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
-	public String getEventTitle() {
-		return eventTitle;
+
+	public String getTitle() {
+		return title;
 	}
-	public void setEventTitle(String eventTitle) {
-		this.eventTitle = eventTitle;
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	public String getEventCode() {
-		return eventCode;
+
+	public String getCode() {
+		return code;
 	}
-	public void setEventCode(String eventCode) {
-		this.eventCode = eventCode;
+
+	public void setCode(String code) {
+		this.code = code;
 	}
-	public String getEventDescription() {
-		return eventDescription;
+
+	public String getDescription() {
+		return description;
 	}
-	public void setEventDescription(String eventDescription) {
-		this.eventDescription = eventDescription;
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
+
+	
 }

@@ -28,6 +28,14 @@ public class Customers {
 		
 	}
 	
+	public Customers(String name, long id, String email, String password) {
+		this.name = name;
+		this.id = id;
+		this.email = email;
+		this.password = password;
+	}
+
+
 	public String getName() {
 		return name;
 	}

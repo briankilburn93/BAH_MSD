@@ -38,7 +38,7 @@ public class RegistrationAPI {
 
 	@PostMapping
 	public ResponseEntity<?> addRegistration(@RequestBody Registration newRegistration, UriComponentsBuilder uri) {
-		if(newRegistration.getId() != 0 || newRegistration.getCustomerId() == 0 || newRegistration.getDate()== null || newRegistration.getEventId() == 0 || newRegistration.getNotes() == null) {
+		if(newRegistration.getId() != 0 || newRegistration.getCustomer_id() == null || newRegistration.getRegistration_date()== null || newRegistration.getEvent_id() == null || newRegistration.getNotes() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);
@@ -52,7 +52,7 @@ public class RegistrationAPI {
 			@RequestBody Registration newRegistration,
 			@PathVariable("eventId") long eventId) 
 	{
-		if(newRegistration.getEventId() != eventId) {
+		if (newRegistration.getEvent_id() == null || newRegistration.getCustomer_id() == null ) { //|| newRegistration.getRegistration_date() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newRegistration = repo.save(newRegistration);

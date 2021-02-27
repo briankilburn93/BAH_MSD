@@ -15,16 +15,16 @@ public class Registration {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(name="EVENT_ID")
-	private int eventId;
+	private String event_id;
 	
 	@Column(name="CUSTOMER_ID")
-	private int customerId;
+	private String customer_id;
 	
 	@Column(name="REGISTRATION_DATE")
-	private Date date;
+	private Date registration_date;
 	
 	@Column(name="NOTES")
 	private String notes;
@@ -33,41 +33,48 @@ public class Registration {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Registration(long id, int customerId, int eventId, Date date, String notes) {
+	public Registration(Long id, String customerId, String eventId, Date registration_date, String notes) {
 		this.id = id;
-		this.customerId = customerId;
-		this.eventId = eventId;
-		this.date = date;
+		this.customer_id = customerId;
+		this.event_id = eventId;
+		this.registration_date = registration_date;
 		this.notes = notes;
 	}
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getEventId() {
-		return eventId;
+	public String getEvent_id() {
+		return event_id;
 	}
-	public void setEventId(int eventId) {
-		this.eventId = eventId;
+
+	public void setEvent_id(String event_id) {
+		this.event_id = event_id;
 	}
-	public int getCustomerId() {
-		return customerId;
+
+	public String getCustomer_id() {
+		return customer_id;
 	}
-	public void setCustomerId(int customerId) {
-		this.customerId = customerId;
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
 	}
-	public Date getDate() {
-		return date;
+
+	public Date getRegistration_date() {
+		return registration_date;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+
+	public void setRegistration_date(Date registration_date) {
+		this.registration_date = registration_date;
 	}
+
 	public String getNotes() {
 		return notes;
 	}
+
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
+	
 }
